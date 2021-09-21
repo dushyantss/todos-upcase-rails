@@ -13,3 +13,13 @@ describe Todo, '#completed?' do
     expect(todo).to_not be_completed
   end
 end
+
+describe Todo, '#complete!' do
+  it 'updates completed_at' do
+    todo = Todo.create!(email: 'someone@exammple.com')
+    expect(todo.completed_at).to be_nil
+
+    todo.complete!
+    expect(todo.completed_at).not_to be_nil
+  end
+end
